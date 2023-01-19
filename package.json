@@ -1,0 +1,31 @@
+{
+  "name": "@ibgrav/graphql",
+  "packageManager": "pnpm@7.25.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "rimraf dist && concurrently \"pnpm:dev:*\"",
+    "dev:server": "tsc-watch --onSuccess \"node ./dist/src/index.js\"",
+    "dev:codegen": "nodemon --watch \"schema/**/*\" -e graphql --exec \"pnpm codegen\"",
+    "codegen": "graphql-codegen",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "graphql": "16.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@graphql-codegen/cli": "^2.16.4",
+    "@graphql-codegen/graphql-modules-preset": "^2.5.11",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-resolvers": "^2.7.12",
+    "@types/node": "^18.11.18",
+    "concurrently": "^7.6.0",
+    "cosmiconfig-toml-loader": "^1.0.0",
+    "nodemon": "^2.0.20",
+    "rimraf": "^4.1.1",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "6.0.0",
+    "typescript": "4.9.4"
+  }
+}

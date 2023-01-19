@@ -1,0 +1,79 @@
+type Query {
+  request: Context
+}
+
+type Context {
+  domain: Domain
+  site: Site
+  page: Page
+}
+
+type Domain {
+  slug: String
+  site: Site
+}
+
+type Site {
+  slug: String
+  title: String
+  search: Page
+  contact: Page
+  footer: Footer
+  address: String
+  phone: String
+  email: String
+  pages: [Page]
+  navigation: [Menu]
+  socialLinks: [SocialLink]
+}
+
+type Page {
+  slug: String
+  title: String
+  theme: Theme
+  blocks: [Block]
+}
+
+type Footer {
+  cta: CTA
+}
+
+type CTA {
+  title: String
+  href: String
+  blurb: String
+}
+
+interface Block {
+  type: String
+  props: String
+}
+
+type Link {
+  title: String
+  href: String
+  page: Page
+}
+
+type Menu {
+  title: String
+  href: String
+  page: Page
+  items: [Menu]
+}
+
+enum Theme {
+  DARK
+  LIGHT
+}
+
+type SocialLink {
+  href: String
+  title: SocialLinks
+}
+
+enum SocialLinks {
+  FACEBOOK
+  TWITTER
+  INSTAGRAM
+}
